@@ -1,33 +1,75 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' type="text/javascript"></script>
-		<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js' type="text/javascript"></script>
-		<link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		<script src="a2.js" type="text/javascript" ></script>
 		<link href='a2.css' rel='stylesheet' type='text/css'>
 	</head>	
 	<body>
-		<canvas id="game_canvas" width="800" height="800"></canvas>
-		<div id='options'>
-
-			<div>
-				<label>Graph Size:</label>
-		  		<input type="text" id="graph_size" style="border:0; color:#f6931f; font-weight:bold;" value='20'>
-				<div id="graph_size_slider"></div>
-			</div>
-			<div>
-				<label>Neighbor Radius:</label>
-		  		<input type="text" id="neighbor_radius" style="border:0; color:#f6931f; font-weight:bold;" value='1'>
-				<div id="neighbor_radius_slider"></div>
-			</div>
-			<div>
-				<button id="run">Run</button>
-				<button id="set_settings">Finalize Settings</button>
-				<button id="stop">Stop</button>
-				<button id="step">Step</button>
-				<button id="randomize_grid">Randomize Grid</button>
-			</div>	
+		<div id='title'>
+			<h1 align='center'>Conway's Game of Life</h1>
 		</div>
+		<div id='site_wrapper'>
+			<div id='game'>
+				<div id='canvas_wrapper'>
+					<canvas id="game_canvas" width="550" height="550"></canvas>
+				</div>
+			</div>
+			<div id='options'>
+				<div id='options_wrapper'>
+					<h3 align='center'>Option Bar</h2>
+					<div id='slider'>
+						<label>Graph Size:</label>
+				  		<input type="text" id="graph_size" style="border:0; color:#f6931f; font-weight:bold;" value='20'>
+						<div id="graph_size_slider"></div>
+					</div>
+					<div id='slider'>
+						<label>Run Speed:</label>
+				  		<input type="text" id="run_speed" style="border:0; color:#f6931f; font-weight:bold;" value='100'>
+						<div id="speed_slider"></div>
+					</div>
+					<div id='slider'>
+						<label>Neighbor Radius:</label>
+				  		<input type="text" id="neighbor" style="border:0; color:#f6931f; font-weight:bold;" value='1'>
+						<div id="neighbor_radius_slider"></div>
+					</div>
+					<div id='slider'>
+						<label>Death by Loneliness:</label>
+				  		<input type="text" id="loneliness" style="border:0; color:#f6931f; font-weight:bold;" value='2'>
+						<div id="loneliness_slider"></div>
+					</div>
+					<div id='slider'>
+						<label>Death by Overpopulation:</label>
+				  		<input type="text" id="overpopulation" style="border:0; color:#f6931f; font-weight:bold;" value='3'>
+						<div id="overpopulation_slider"></div>
+					</div>
+					<div id='slider'>
+						<label>Generation Range:</label>
+				  		<input type="text" id="gen" style="border:0; color:#f6931f; font-weight:bold;">
+						<div id="generation_slider"></div>
+					</div>
+					<div id='select_menu'>
+						<label for="outside_menu">Neighbors Outside the Grid:</label>
+						<br>
+					    <select name="outside_menu" id="outside_menu">
+					      <option value= 'toroid' selected="selected">Toroidal(Wraps Around)</option>
+					      <option value='dead'>Always Dead</option>
+					      <option value='alive'>Always Alive</option>
+					    </select>
+					</div>
+					<div id= 'radio1'>
+						<button id="run">Run</button>
+						<button id="stop">Stop</button>
+						<button id="step">Step</button>
+					</div>
+					<div id= 'radio2'>
+						<button id="set_settings">Clean Graph</button>
+						<button id="randomize_grid">Randomize Grid</button>
+					</div>		
+				</div>
+			</div>
+		</div>	
 	</body>
 </html>
